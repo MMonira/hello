@@ -1,0 +1,175 @@
+{% extends "main.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .container{
+            text-align: center;
+            
+        }
+
+        .profile-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .field {
+            margin-bottom: 15px;
+        }
+
+        .field label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .field span {
+            font-weight: normal;
+        }
+
+        .field:last-child {
+            margin-bottom: 0;
+        }
+
+        .additional-info {
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+
+        .additional-info h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #04AA6D; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+          
+          .button2 {background-color: #008CBA;} /* Blue */
+          .button3 {background-color: #f44336;} /* Red *
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="/{{user.profile_photo}}" alt="Profile Photo" class="profile-photo">
+        
+<button class="button"><a href="{% url 'editprofile' %}">Edit profile</a></button>
+<button class="button"><a href="{% url 'changepass' %}">Change Password</a></button>
+{% if user.user_type == 'recruiter' %}
+<button class="button button2"><a href="{% url 'addjob' %}">Add job</a></button>
+{% elif user.user_type == 'jobseeker' %}
+<button class="button button3"><a href="{% url 'applied' %}">Applied job</a></button>
+<button class="button button3"><a href="{% url 'applied' %}">Applied job</a></button>
+<button class="button button3"><a href="{% url 'seebasic' %}">Basic Information</a></button>
+<button class="button button3"><a href="{% url 'applied' %}">Applied job</a></button>
+{% endif %}
+        <div class="field">
+            <label>Username:</label>
+            <span>{{info.user.username}}</span>
+        </div>
+        <div class="field">
+            <label>First Name:</label>
+            <span>{{info.user.first_name}}</span>
+        </div>
+        <div class="field">
+            <label>Last Name:</label>
+            <span>{{info.user.last_name}}</span>
+        </div>
+        <div class="field">
+            <label>Age:</label>
+            <span>{{info.user.age}}</span>
+        </div>
+        <div class="field">
+            <label>Gender:</label>
+            <span>{{info.user.gender}}</span>
+        </div>
+        <div class="field">
+            <label>Blood Group:</label>
+            <span>{{info.user.blood_group}}</span>
+        </div>
+        <div class="field">
+            <label>City:</label>
+            <span>{{info.user.city}}</span>
+        </div>
+        <div class="field">
+            <label>Country:</label>
+            <span>{{user.country}}</span>
+        </div>
+        <div class="field">
+            <label>User Type:</label>
+            <span>{{user.user_type}}</span>
+        </div>
+        <div class="additional-info">
+            <h3>Additional Information</h3>
+            {% if user.user_type == 'recruiter' %}
+            <div class="field">
+                <label>Company Name:</label>
+                <span>{{info.company_name}}</span>
+            </div>
+            <div class="field">
+                <label>Company Location:</label>
+                <span>{{info.company_location}}</span>
+            </div>
+            <div class="field">
+                <label>Recruiter Name:</label>
+                <span>{{info.recruiter_name}}</span>
+            </div>
+            {% elif user.user_type == 'jobseeker' %}
+            <div class="field">
+                <label>Qualifications:</label>
+                <span>{{info.qualification}}</span>
+            </div>
+            <div class="field">
+                <label>Experience:</label>
+                <span>{{info.experience}}</span>
+            </div>
+            <div class="field">
+                <label>Skills:</label>
+                <span>{{info.skills}}</span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="container">
+        {% block Information %}
+        
+        
+        
+        {% endblock Information %}
+    </div>
+</body>
+</html>
+
+
+{% endblock content %}
