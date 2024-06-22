@@ -1,0 +1,143 @@
+
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+
+{% endblock content %}
+
+give me a application form page with style using the fields name:
+skills
+Resume
+picture
+qualifications
+
+
+crm >>> 
+
+
+
+
+Working skills Models(models.Models)
+Category
+experience type (Forignkey with Category)
+.DO you have any experience(boolian field)
+if Yes(checkbox)
+    .latest company name
+    .latest designation
+    .employment period(two date field)
+    Currently Working(checkbox) if check then second datefield will show continuing
+
+
+Educational qualificationsModel
+
+.dO you have Institutional Educational(boolian)
+
+if Yes:
+    .latest Education stage
+    .Name of examination /Degree
+    .Name of Educational Institution(auto suggest type show )
+    .Concentration/Major/Group
+    .Board
+    .Year of Passing(choices or what it is )
+
+
+
+Photogragh
+.upload a photo 
+
+
+
+Employer Registration form
+    ACCOUNT Information
+
+    .Username
+    . Password
+    .confirm Password
+
+    company details Information
+        . Company Name
+        .Year of Establishment
+        .Company Size
+        . Company Address (onetoonefield)
+            .select Country
+            .Select District
+            .Select Thana
+            .Write Company Address
+        .Industry Type 
+            .Select Category
+           ( .Search IndustryType > its for better frontend)
+        (not required field)
+        .Business description
+        .Business/trade license no 
+        .RL No (Only for Recruiting Agency)
+        Website URL
+
+
+    Contact
+        Primary Contact
+            Contact Person's Name*
+            Contact Person's Designation*
+            Contact Person's Email*
+            Contact Person's Mobile (NOT required)
+
+    Facilities for Person with Disabilities (CHECKBOX)
+
+
+@AFTER SIGNUP 
+
+        Provide your information for NID Verification
+
+        MODEL
+         .Verify NID
+         Date of Birth
+         Capture your Image
+
+         (there will be two buttons .skip now  . continue(give all (required)))
+
+         @then it will go to login page
+            (only Login button)
+        
+
+
+
+
+@@ Django Project Idea(search by this)
+LOOKING FOR (Facebook , youtybe , github, )
+
+
+
+
+@@@ JOB POST INFORMATION 
+    JOBinfoMODEL
+        .JOB information model
+            . job title
+            . deadline
+            . job Category
+            .job location
+            .vacancy no
+            .Employment Status(full time , part time , contractual, intern , freelance)
+            .workplace (from home , from office)
+            .Job Responsibilities & Context (textarea)
+            . salary (minimum , maximum fields)
+            .add Compensation and Benefit information
+                .Compensations and Benefits(
+                    T/A , Mobile bill , Pension policy etc.
+                )
+                .Launch Facility()
+              
+                .salary review (half yearly , Yearly)
+                .Festival bonus (choices)
+                .Write other Benefits here
+    .candidate requirements
+        .gender
+        .minimum age 
+        .maximum age
+        .prefer video cv (yes , no)
+
+        EDUCATIONAL QUALIFICATION (Forignkey (it can  be multiple))
+            .Degree name
+            .select department 
+            .select Concentration/group/Major
+            .add preferred Educational instiute (add upto 5)
+            .add professional cer
